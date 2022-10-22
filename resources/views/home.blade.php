@@ -25,7 +25,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xl-4">
-                                    <div class="card bg-c-blue order-card">
+                                    <div class="card bg-c-green order-card">
                                         <div class="card-block">
                                             <h5>Roles</h5>
                                             @php
@@ -38,7 +38,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xl-4">
-                                    <div class="card bg-c-blue order-card">
+                                    <div class="card bg-c-pink order-card">
                                         <div class="card-block">
                                             <h5>Blogs</h5>
                                             @php
