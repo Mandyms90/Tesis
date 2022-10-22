@@ -16,7 +16,7 @@
                                     <h5>Usuarios</h5>
                                     <h2 class="text-right"><i class="fa fa-users f-left"></i><span></span></h2>
                                     <p class="m-b-0 text-right"><a href="/usuarios" class="text-white">Ver más</a></p>
-
+                                    1111
                                 </div>
 
                             </div>
