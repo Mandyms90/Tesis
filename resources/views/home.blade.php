@@ -11,8 +11,8 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <div class="card bt-c-blue order-card">
-                                <div class="card-blok">
+                            <div class="card bg-c-blue order-card">
+                                <div class="card-block">
                                     <h5>Usuarios</h5>
                                     <h2 class="text-right"><i class="fa fa-users f-left"></i><span></span></h2>
                                     <p class="m-b-0 text-right"><a href="/usuarios" class="text-white">Ver más</a></p>
