@@ -35,17 +35,17 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                
-                <div class="d-sm-none d-lg-inline-block">{{ __('messages.common.hello') }}</div>
+                <div class="d-sm-none d-lg-inline-block"><i class="fas fa-home"></i> {{ __('Hello') }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">{{ __('messages.common.login') }}
-                    / {{ __('messages.common.register') }}</div>
+                {{--  <div class="dropdown-title">{{ __('messages.common.login') }}
+                    / {{ __('messages.common.register') }}</div>  --}}
                 <a href="{{ route('login') }}" class="dropdown-item has-icon">
-                    <i class="fas fa-sign-in-alt"></i> {{ __('messages.common.login') }}
+                    <i class="fas fa-sign-in-alt"></i> {{ __('Login') }}
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('register') }}" class="dropdown-item has-icon">
-                    <i class="fas fa-user-plus"></i> {{ __('messages.common.register') }}
+                    <i class="fas fa-user-plus"></i> {{ __('Register') }}
                 </a>
             </div>
         </li>
