@@ -38,15 +38,16 @@
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-12">
-                    <div class="main-content2  " >
+                    <div class="main-content2 " >
                         @yield('content')
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="main-footer">
+        
+        {{--  <footer class="d-flex justify-content-center mt-auto p-2 bd-highlight" >
             @include('layouts.footer')
-        </footer>
+        </footer>  --}}
     </div>
 </div>
 
