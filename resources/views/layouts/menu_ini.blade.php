@@ -1,4 +1,4 @@
-<li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
+<li class="side-menus  {{ Request::is('*') ? 'active' : '' }}">
     <a class="nav-link" href="/">
         <i class="fas fa-home fa-fw" ></i><span>Inicio</span>
     </a>

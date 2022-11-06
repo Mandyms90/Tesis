@@ -1,5 +1,5 @@
-<aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
+<aside id="sidebar-wrapper ">
+    <div class="sidebar-brand ">
         <img class="navbar-brand-full app-header-logo img-fluid img-thumbnail " src="{{ asset('img/Logo1.png') }}" 
              alt="Infyom Logo">
         <a href="{{ url('/') }}"></a>
@@ -9,7 +9,7 @@
             <img class="navbar-brand-full img-fluid img-thumbnail" src="{{ asset('img/Logo (Inicial).png') }}"  alt=""/>
         </a>
     </div>
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu ">
         @include('layouts.menu_ini')
     </ul>
 </aside>
