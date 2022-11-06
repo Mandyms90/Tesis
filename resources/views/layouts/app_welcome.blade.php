@@ -31,9 +31,13 @@
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
-            @include('layouts.header_ini')
-
+            @include('layouts.header_ini')            
         </nav>
+    
+        <div class="main-sidebar main-sidebar-postion">
+             @include('layouts.sidebar')
+        </div>
+        
         <!-- Main Content -->
         <div class="container">
             <div class="row justify-content-md-center">
@@ -44,10 +48,11 @@
                 </div>
             </div>
         </div>
-        
-        {{--  <footer class="d-flex justify-content-center mt-auto p-2 bd-highlight" >
-            @include('layouts.footer')
-        </footer>  --}}
+        <div class="container">
+            <footer class="row align-items-end" >
+                @include('layouts.footer')
+            </footer>
+        </div>
     </div>
 </div>
 
