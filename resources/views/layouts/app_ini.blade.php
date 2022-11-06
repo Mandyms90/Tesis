@@ -31,28 +31,19 @@
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
-            @include('layouts.header_ini')            
+            @include('layouts.header')
+
         </nav>
-    
         <div class="main-sidebar main-sidebar-postion">
-             @include('layouts.sidebar')
+            @include('layouts.sidebar_ini')
         </div>
-        
         <!-- Main Content -->
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-12">
-                    <div class="main-content2 " >
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
+        <div class="main-content">
+            @yield('content')
         </div>
-        <div class="container">
-            <footer class="row align-items-end" >
-                @include('layouts.footer')
-            </footer>
-        </div>
+        <footer class="main-footer">
+            @include('layouts.footer')
+        </footer>
     </div>
 </div>
 

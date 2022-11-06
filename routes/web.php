@@ -22,6 +22,9 @@ use App\Http\Controllers\BlogController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/info', function () {
+    return view('info');
+});
 
 
 
