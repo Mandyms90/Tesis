@@ -46,7 +46,41 @@
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="sr-only">Next</span>
                     </button>
-              </div>                 
+              </div>
+              <br>
+              <br>
+              <hr class="my-4">
+              <br>
+              <h1 class="display-5">Noticias</h1>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="{{ asset('img/a894b60826ff418671148d6b647ea727.jpeg') }}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
+                      </div>
+                    </div>       
+                  </div>
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="{{ asset('img/a894b60826ff418671148d6b647ea727.jpeg') }}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
+                      </div>
+                    </div>       
+                  </div>
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="{{ asset('img/a894b60826ff418671148d6b647ea727.jpeg') }}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
+                      </div>
+                    </div>       
+                  </div>
+                </div>
+              </div>
+                        
             </div>
           </div>            
         </div>       

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\InformeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +26,22 @@ Route::get('/', function () {
 Route::get('/info', function () {
     return view('info');
 });
+// Route::get('/informe', function () {
+//     return view('informe.index');
+// });
 
 
+    
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
+
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles',RolController::class);
     Route::resource('usuarios',UsuarioController::class);
     Route::resource('blogs',BlogController::class);
+    // Route::resource('informe',InformeController::class);
 });
