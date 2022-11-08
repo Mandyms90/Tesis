@@ -26,8 +26,8 @@ Route::get('/', function () {
 Route::get('/info', function () {
     return view('info');
 });
-// Route::get('/informe', function () {
-//     return view('informe.index');
+// Route::get('/informes', function () {
+//     return view('informes.index');
 // });
 
 
@@ -37,7 +37,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
+// Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
+Route::resource('informes',App\Http\Controllers\InformeController::class);
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles',RolController::class);
