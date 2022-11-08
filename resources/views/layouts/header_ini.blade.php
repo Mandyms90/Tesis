@@ -5,20 +5,7 @@
 </form>
 <ul class="navbar-nav navbar-right">
     @if(\Illuminate\Support\Facades\Auth::user())
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
+    
             <li class="dropdown">
             <a href="#" data-toggle="dropdown" 
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">

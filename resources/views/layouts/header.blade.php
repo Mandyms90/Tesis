@@ -8,7 +8,7 @@
             <a class="nav-link" href="/info"><i class="fas fa-info-circle fa-fw" ></i><span>¿Quienes somos?</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Contactos</a>
+            <a class="nav-link" href="/"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
           </li>          
     </ul>
 </form>
@@ -42,7 +42,7 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                
-                <div class="d-sm-none d-lg-inline-block"><i class="fas fa-home"></i> {{ __('Hello') }}</div>
+                <div class="d-sm-none d-lg-inline-block"><i class="fas fa-address-card"></i> {{ __('Hello') }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 {{--  <div class="dropdown-title">{{ __('messages.common.login') }}
