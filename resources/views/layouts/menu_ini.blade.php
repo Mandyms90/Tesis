@@ -1,5 +1,5 @@
 <li class="side-menus  {{ Request::is('*') ? 'active' : '' }}">
-    <a class="nav-link" href="/">
+    <a class="nav-link" href="https://cursos.disaic.cu/" target="_blank">
         <i class="fas fa-chalkboard-teacher fa-fw" ></i><span>Plataforma Virtual de Entrenamiento</span>
     </a>
     <a class="nav-link" href="/informes">

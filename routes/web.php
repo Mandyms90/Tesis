@@ -26,9 +26,9 @@ Route::get('/', function () {
 Route::get('/info', function () {
     return view('info');
 });
-// Route::get('/informes', function () {
-//     return view('informes.index');
-// });
+Route::get('/contactos', function () {
+    return view('contactos');
+});
 
 
     

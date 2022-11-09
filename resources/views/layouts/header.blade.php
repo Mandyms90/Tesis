@@ -8,7 +8,7 @@
             <a class="nav-link" href="/info"><i class="fas fa-info-circle fa-fw" ></i><span>¿Quienes somos?</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
+            <a class="nav-link" href="/contactos"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
           </li>          
     </ul>
 </form>
