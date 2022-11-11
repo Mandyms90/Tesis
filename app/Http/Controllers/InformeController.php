@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Informe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class InformeController
@@ -43,12 +44,39 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Informe::$rules);
+        $campos=[
+            'titulo'=>'required|string|max:100',
+            'descripcion'=>'required|string|max:100'          
+        ];
+        // $mensaje=[
+        //     'required'=>'El :attribute es requerido',
+        //     'Foto.required'=>'La foto requerida',    
+        // ];
+        
+        $this->validate($request, $campos);
 
-        $informe = Informe::create($request->all());
+        
+        // Recolectame todos los datos que te envien del formulario, excepto token
+        
+        $datosInforme = request()->except('_token');
+        
+        if($request->hasFile('imagen')){
+            $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');
+            }
+        if($request->hasFile('pdf')){
+            $datosInforme['pdf']=$request->file('pdf')->store('uploads','public');
+            }
+        
+        Informe::insert($datosInforme);        
+        
+        return redirect('informes/')->with('success','Informe agregado con exito');
 
-        return redirect()->route('informes.index')
-            ->with('success', 'Informe created successfully.');
+        // request()->validate(Informe::$rules);
+
+        // $informe = Informe::create($request->all());
+
+        // return redirect()->route('informes.index')
+        //     ->with('success', 'Informe created successfully.');
     }
 
     /**
@@ -84,14 +112,49 @@ class InformeController extends Controller
      * @param  Informe $informe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Informe $informe)
+    // Informe $informe
+    public function update(Request $request,Informe $informe,$id)
     {
-        request()->validate(Informe::$rules);
+        $campos=[
+            'titulo'=>'required|string|max:100',
+            'descripcion'=>'required|string|max:100'          
+        ];
+        // $mensaje=[
+        //     'required'=>'El :attribute es requerido',
+        //     'Foto.required'=>'La foto requerida',    
+        // ];
+        
+        if($request->hasFile('Foto')){
+            $campos=['imagen'=>'required|max:10000|mimes:jpg,jpeg,png'];
+            // $mensaje=['imagen.required'=>'La imagen requerida'];  
+        }
+        
+        $this->validate($request, $campos);
 
-        $informe->update($request->all());
+        $datosInforme = request()->except('_token','_method');
+        
+        if($request->hasFile('imagen')){
+            $informe=Informe::findOrFail($id);
+            Storage::delete('public/'.$informe->imagen);
+            $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');            
+        }
+        if($request->hasFile('pdf')){
+            $informe=Informe::findOrFail($id);
+            Storage::delete('public/'.$informe->pdf);
+            $datosInforme['pdf']=$request->file('pdf')->store('uploads','public');            
+        }
+                       
+        Informe::where('id','=',$id)->update($datosInforme);
+        $informe=Informe::findOrFail($id);
+         
+        return redirect('informes/')->with('success','Informe editado con exito');
 
-        return redirect()->route('informes.index')
-            ->with('success', 'Informe updated successfully');
+        // request()->validate(Informe::$rules);
+
+        // $informe->update($request->all());
+
+        // return redirect()->route('informes.index')
+        //     ->with('success', 'Informe updated successfully');
     }
 
     /**

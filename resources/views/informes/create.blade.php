@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('informes.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
-
+                            {{--  {{ method_field('PATCH') }}  --}}
                             @include('informes.form')
 
                         </form>
