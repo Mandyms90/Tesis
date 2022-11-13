@@ -30,11 +30,15 @@
                         </div>
                         <div class="form-group">
                             <strong>Imagen:</strong>
-                            {{ $informe->imagen }}
+                            <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
+                                <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" width="150" alt="" >  
+                            </a> 
                         </div>
                         <div class="form-group">
                             <strong>Pdf:</strong>
-                            {{ $informe->pdf }}
+                            <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
+                                <img src="{{ asset('img/pdf ico.jpg') }}" class="img-thumbnail img-fluid border border-5" alt="" width="10%">
+                            </a>
                         </div>
 
                     </div>

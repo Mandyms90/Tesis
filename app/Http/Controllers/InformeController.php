@@ -113,7 +113,7 @@ class InformeController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Informe $informe
-    public function update(Request $request,Informe $informe,$id)
+    public function update(Request $request,$id)
     {
         $campos=[
             'titulo'=>'required|string|max:100',
@@ -123,12 +123,7 @@ class InformeController extends Controller
         //     'required'=>'El :attribute es requerido',
         //     'Foto.required'=>'La foto requerida',    
         // ];
-        
-        if($request->hasFile('Foto')){
-            $campos=['imagen'=>'required|max:10000|mimes:jpg,jpeg,png'];
-            // $mensaje=['imagen.required'=>'La imagen requerida'];  
-        }
-        
+                    
         $this->validate($request, $campos);
 
         $datosInforme = request()->except('_token','_method');
@@ -164,9 +159,11 @@ class InformeController extends Controller
      */
     public function destroy($id)
     {
-        $informe = Informe::find($id)->delete();
-        
+        $informe = Informe::findOrFail($id);
+        Storage::delete('public/'.$informe->imagen);
+        Storage::delete('public/'.$informe->pdf);       
+        $informe->delete();
         return redirect()->route('informes.index')
-            ->with('success', 'Informe deleted successfully');
+            ->with('success', 'Informe borrado con exito');
     }
 }
