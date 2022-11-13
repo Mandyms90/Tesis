@@ -165,7 +165,7 @@ class InformeController extends Controller
     public function destroy($id)
     {
         $informe = Informe::find($id)->delete();
-
+        
         return redirect()->route('informes.index')
             ->with('success', 'Informe deleted successfully');
     }

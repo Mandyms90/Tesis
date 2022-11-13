@@ -17,7 +17,7 @@
             {{ Form::label('imagen') }}
             <br>
             @if (@isset($informe->imagen))
-            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" width="100" alt="" >
+            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" width="100%" alt="" >
             @endif
             <input  type="file" accept=".jpg,.jpeg,.png" class="form-control" name="imagen"  id="imagen"  >
             

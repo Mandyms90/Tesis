@@ -25,6 +25,9 @@
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close">
+                                <span aria-hidden="true" >  </span>
+                            </button>
                         </div>
                     @endif
 
@@ -47,13 +50,20 @@
                                             <td style="display: none;">{{ ++$i }}</td>                                            
 											<td>{{ $informe->titulo }}</td>
 											<td>{{ $informe->descripcion }}</td>
-											<td>{{ $informe->imagen }}</td>
-											<td>{{ $informe->pdf }}</td>
-
+											<td>
+                                                <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
+                                                    <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" width="150" alt="" >  
+                                                </a>                                            
+                                            </td>
+											<td>
+                                                <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
+                                                    <img src="{{ asset('img/pdf ico.jpg') }}" class="img-thumbnail img-fluid border border-5" alt="" width="25%">
+                                                </a>
+                                                </td>
                                             <td>
                                                 <form action="{{ route('informes.destroy',$informe->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('informes.show',$informe->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('informes.edit',$informe->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <a class="btn btn-sm btn-info" href="{{ route('informes.edit',$informe->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>

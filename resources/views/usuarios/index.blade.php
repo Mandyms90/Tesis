@@ -36,20 +36,16 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-                                                
-                                                {{--  Boton de Borrado  --}}
-                                                
-                                                
-                                                {{--  <form action="{{ url('/delete'.$usuario->id) }}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    {{ method_field('DELETE') }}
-                                                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
-                                                </form>                                                  --}}
-                                                
                                                 {{ Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id ], 'style'=>'display:inline']) }}
                                                     {{ Form::submit('Borrar', ['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}
 
+                                                {{--  Boton de Borrado  --}}                                             
+                                                {{--  <form action="{{ url('/delete'.$usuario->id) }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    {{ method_field('DELETE') }}
+                                                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                                                </form>--}}
                                             </td>
                                         </tr>
                                     @endforeach
