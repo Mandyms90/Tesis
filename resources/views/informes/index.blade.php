@@ -31,23 +31,20 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
-                                <thead class="thead-dark">
+                                <thead style="background-color: #6777ef;">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Titulo</th>
-										<th>Descripcion</th>
-										<th>Imagen</th>
-										<th>Pdf</th>
-
-                                        <th></th>
+                                        <th style="display: none;">No</th>                                        
+										<th style="color: #fff;">Titulo</th>
+										<th style="color: #fff;">Descripcion</th>
+										<th style="color: #fff;">Imagen</th>
+										<th style="color: #fff;">Informes</th> 
+                                        <th style="color: #fff;">Acciones</th>                
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($informes as $informe)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
+                                            <td style="display: none;">{{ ++$i }}</td>                                            
 											<td>{{ $informe->titulo }}</td>
 											<td>{{ $informe->descripcion }}</td>
 											<td>{{ $informe->imagen }}</td>
@@ -69,7 +66,9 @@
                         </div>
                     </div>
                 </div>
-                {!! $informes->links() !!}
+                <div class="pagination justify-content-end">
+                    {!! $informes->links() !!}
+                </div>
             </div>
         </div>
     </div>
