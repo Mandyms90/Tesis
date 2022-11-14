@@ -11,4 +11,8 @@
     <a class="nav-link" href="/blogs">
         <i class=" fas fa-blog"></i><span>Blogs</span>
     </a>
+    <a class="nav-link" href="/config">
+        <i class=" fas fa-blog"></i><span>Administración</span>
+    </a>
+
 </li>

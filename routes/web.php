@@ -8,6 +8,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InformeController;
+use App\Http\Controllers\CarrucelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/info', function () {
 Route::get('/contactos', function () {
     return view('contactos');
 });
+Route::get('/config', function () {
+    return view('config');
+});
 
 
     
@@ -39,10 +43,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
 Route::resource('informes',App\Http\Controllers\InformeController::class);
+Route::resource('carrucels',App\Http\Controllers\CarrucelController::class)->middleware('auth');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles',RolController::class);
     Route::resource('usuarios',UsuarioController::class);
     Route::resource('blogs',BlogController::class);
-    // Route::resource('informe',InformeController::class);
+    // Route::resource('carrucels',CarrucelController::class);
 });
