@@ -48,10 +48,6 @@ class InformeController extends Controller
             'titulo'=>'required|string|max:100',
             'descripcion'=>'required|string|max:100'          
         ];
-        // $mensaje=[
-        //     'required'=>'El :attribute es requerido',
-        //     'Foto.required'=>'La foto requerida',    
-        // ];
         
         $this->validate($request, $campos);
 

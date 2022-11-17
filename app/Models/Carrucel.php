@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -28,7 +27,6 @@ class Carrucel extends Model
      *
      * @var array
      */
-    use HasFactory;
     protected $fillable = ['foto'];
 
 

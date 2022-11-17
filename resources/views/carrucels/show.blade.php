@@ -14,7 +14,7 @@
                             <span class="card-title">Show Carrucel</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('carrucels.index') }}"> volver</a>
+                            <a class="btn btn-primary" href="{{ route('carrucels.index') }}"> Back</a>
                         </div>
                     </div>
 

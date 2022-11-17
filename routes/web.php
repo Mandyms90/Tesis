@@ -43,11 +43,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
 Route::resource('informes',App\Http\Controllers\InformeController::class);
-Route::resource('carrucels',App\Http\Controllers\CarrucelController::class)->middleware('auth');
+Route::resource('config',App\Http\Controllers\CarrucelController::class)->middleware('auth');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles',RolController::class);
     Route::resource('usuarios',UsuarioController::class);
-    Route::resource('blogs',BlogController::class);
-    // Route::resource('carrucels',CarrucelController::class);
+    Route::resource('blogs',BlogController::class);    
+    Route::resource('carrucels',CarrucelController::class);    
 });

@@ -19,10 +19,10 @@ class CarrucelController extends Controller
      */
     public function index()
     {
-        $carrucels = Carrucel::paginate();
+        $carr = Carrucel::paginate();
 
-        return view('carrucels.index', compact('carrucels'))
-            ->with('i', (request()->input('page', 1) - 1) * $carrucels->perPage());
+        return view('carrucels.index', compact('carr'))
+            ->with('i', (request()->input('page', 1) - 1) * $carr->perPage());
     }
 
     /**
@@ -32,8 +32,8 @@ class CarrucelController extends Controller
      */
     public function create()
     {
-        $carrucel = new Carrucel();
-        return view('carrucels.create', compact('carrucel'));
+        $carr = new Carrucel();
+        return view('carrucels.create', compact('carr'));
     }
 
     /**
@@ -44,12 +44,14 @@ class CarrucelController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Carrucel::$rules);
+        $datosCarr = request()->except('_token');
 
-        $carrucel = Carrucel::create($request->all());
-
-        return redirect()->route('carrucels.index')
-            ->with('success', 'Carrucel created successfully.');
+        if($request->hasFile('foto')){
+        $datosCarr['foto']=$request->file('foto')->store('uploads','public');
+        }     
+        Carrucel::insert($datosCarr);        
+     
+        return redirect('carrucels/')->with('success','Imagen agregada con exito');       
     }
 
     /**
@@ -60,9 +62,9 @@ class CarrucelController extends Controller
      */
     public function show($id)
     {
-        $carrucel = Carrucel::find($id);
+        $carr = Carrucel::find($id);
 
-        return view('carrucels.show', compact('carrucel'));
+        return view('carrucels.show', compact('carr'));
     }
 
     /**
@@ -73,9 +75,9 @@ class CarrucelController extends Controller
      */
     public function edit($id)
     {
-        $carrucel = Carrucel::find($id);
+        $carr = Carrucel::find($id);
 
-        return view('carrucels.edit', compact('carrucel'));
+        return view('carrucels.edit', compact('carr'));
     }
 
     /**
@@ -85,14 +87,20 @@ class CarrucelController extends Controller
      * @param  Carrucel $carrucel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carrucel $carrucel)
+    public function update(Request $request, $id)
     {
-        request()->validate(Carrucel::$rules);
-
-        $carrucel->update($request->all());
-
-        return redirect()->route('carrucels.index')
-            ->with('success', 'Carrucel updated successfully');
+        $datosCarr = request()->except('_token','_method');
+        
+        if($request->hasFile('foto')){
+            $carr=Carrucel::findOrFail($id);
+            Storage::delete('public/'.$carr->foto);
+            $datosCarr['foto']=$request->file('foto')->store('uploads','public');            
+        }       
+                       
+        Carrucel::where('id','=',$id)->update($datosCarr);
+        $carr=Carrucel::findOrFail($id);
+         
+        return redirect('carrucels/')->with('success','Imagen editada con exito');
     }
 
     /**
@@ -102,9 +110,11 @@ class CarrucelController extends Controller
      */
     public function destroy($id)
     {
-        $carrucel = Carrucel::find($id)->delete();
-
+        
+        $carr = Carrucel::findOrFail($id);
+        Storage::delete('public/'.$carr->foto);               
+        $carr->delete();
         return redirect()->route('carrucels.index')
-            ->with('success', 'Carrucel deleted successfully');
+            ->with('success', 'Imagen borrada con exito');       
     }
 }
