@@ -23,11 +23,11 @@
                     </div>
 
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success alert-dismissible">
                             <p>{{ $message }}</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close">
-                                <span aria-hidden="true" >  </span>
-                            </button>
+                            <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>                            
                         </div>
                     @endif
 
