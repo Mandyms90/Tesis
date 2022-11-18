@@ -3,13 +3,24 @@
         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
         <li class="nav-item">
             <a class="nav-link active" href="/"><i class="fas fa-home fa-fw" ></i><span>Inicio</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/info"><i class="fas fa-info-circle fa-fw" ></i><span>¿Quienes somos?</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contactos"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
-          </li>          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/info"><i class="fas fa-info-circle fa-fw" ></i><span>¿Quienes somos?</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contactos"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
+        </li> 
+        
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-tools"></i> Administración </a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="/carrucels"> Carrucel de Bienvenida </a>
+            <a class="dropdown-item" href="#"> Noticias </a>
+            <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/informes"> Informes </a>
+                <a class="dropdown-item" href="#"> Boletines </a>
+            </div>
+          </li>         
     </ul>
 </form>
 <ul class="navbar-nav navbar-right">

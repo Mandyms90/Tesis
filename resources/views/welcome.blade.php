@@ -1,4 +1,4 @@
-@extends('layouts.app_ini')
+@extends('layouts.app')
 
 @section('content')
     <section class="section">
@@ -22,55 +22,22 @@
           <div class="card">
             <div class="card-body">                           
               <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
-                {{--  <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>  --}}
-                <div class="carousel-inner">
-                  
-                  {{--  style="height: 350px ;"  --}}
-                
-                @for ($i = 0; $i < count($carr); $i++)
-                  <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
-                  <img src="{{ asset('storage').'/'.$carr[$i]->foto }}" style="height: 600px;" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>
-
-                {{--  <p>{{ $orderProduct->column['Position'][$i] }}</p>
-                <p>{{ $orderProduct->column['Color'][$i] }}</p>  --}}
-                @endfor
-{{--  
-                  <div class="carousel-item active">
-                    <img src="{{ asset('storage').'/'.$carr[0]->foto }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>       
-                
-                  
-
-                  @foreach ($carr as $carrucel)
-                  <div class="carousel-item">
-                    <img src="{{ asset('storage').'/'.$carrucel->foto }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>
-                  @endforeach  --}}
-                    
-                  {{--  <div class="carousel-item active">
-                    <img src="{{ asset('img/ac4f0fe0f6deeb7b928fb6502cb24eaf.jpeg') }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('img/b5a69ea3f147ce874403bcc07044321c.jpeg') }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('img/a894b60826ff418671148d6b647ea727.jpeg') }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
-                  </div>  --}}
-                </div>
-                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </button>
-              </div>
+                <div class="carousel-inner">        
+                  @for ($i = 0; $i < count($carr); $i++)
+                    <div class="carousel-item {{ $i === 0 ? 'active' : '' }}">
+                      <img style="width: 450px; height: 450px; object-fit: contain" src="{{ asset('storage').'/'.$carr[$i]->foto }}" class="img-fluid rounded  d-block w-100 p-3" alt="...">
+                    </div>                                
+                  @endfor                
+                  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </button>
+              </div>                
+            </div>           
               <br>
               <br>
               <hr class="my-4">
@@ -103,11 +70,9 @@
                     </div>       
                   </div>
                 </div>
-              </div>
-                        
-            </div>
-          </div>            
-        </div>       
+              </div>                        
+          </div>
+        </div>    
     </section>
 @endsection
 
