@@ -24,6 +24,12 @@ class CarrucelController extends Controller
         return view('carrucels.index', compact('carr'))
             ->with('i', (request()->input('page', 1) - 1) * $carr->perPage());
     }
+    public function welcome()
+    {
+        $carr = Carrucel::paginate();
+
+        return view('welcome', compact('carr'));            
+    }
 
     /**
      * Show the form for creating a new resource.

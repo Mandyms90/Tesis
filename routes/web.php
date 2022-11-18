@@ -21,9 +21,9 @@ use App\Http\Controllers\CarrucelController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/info', function () {
     return view('info');
 });
@@ -40,6 +40,7 @@ Route::get('/config', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/',[App\Http\Controllers\CarrucelController::class, 'welcome']);
 
 // Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
 Route::resource('informes',App\Http\Controllers\InformeController::class);
