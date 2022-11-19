@@ -18,7 +18,7 @@
             <a class="dropdown-item" href="#"> Noticias </a>
             <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/informes"> Informes </a>
-                <a class="dropdown-item" href="#"> Boletines </a>
+                <a class="dropdown-item" href="/boletines"> Boletines </a>
             </div>
           </li>         
     </ul>

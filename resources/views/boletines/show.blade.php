@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $informe->name ?? 'Show Informe' }}
+    {{ $boletin->name ?? 'Show Informe' }}
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
                             <span class="card-title">Mostrar Informe</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('informes.index') }}"> Volver</a>
+                            <a class="btn btn-primary" href="{{ route('boletines.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -22,21 +22,21 @@
                         
                         <div class="form-group">
                             <strong class="h5">Título:</strong>
-                            {{ $informe->titulo }}
+                            {{ $boletin->titulo }}
                         </div>
                         <div class="form-group">
                             <strong class="h5">Descripcion:</strong>
-                            {{ $informe->descripcion }}
+                            {{ $boletin->descripcion }}
                         </div>
                         <div class="form-group">
                             <strong class="h5">Imagen:</strong>
-                            <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
-                                <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" width="150" alt="" >  
+                            <a href="{{ asset('storage').'/'.$boletin->pdf }}" target="_blank">
+                                <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$boletin->imagen }}" width="150" alt="" >  
                             </a> 
                         </div>
                         <div class="form-group">
                             <strong class="h5">Documento:</strong>
-                            <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
+                            <a href="{{ asset('storage').'/'.$boletin->pdf }}" target="_blank">
                                 <img src="{{ asset('img/pdf ico.jpg') }}" class="img-thumbnail img-fluid border border-5" alt="" width="10%">
                             </a>
                         </div>

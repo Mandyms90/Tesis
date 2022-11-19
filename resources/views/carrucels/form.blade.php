@@ -4,7 +4,7 @@
             {{ Form::label('imagen') }}
             <br>
             @if (@isset($carr->foto))
-            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$carr->foto }}"  alt="" >
+            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$carr->foto }}" style="width: 200px; height: 200px;  object-fit: scale-down;" >
             @endif
             <input  type="file" accept=".jpg,.jpeg,.png" class="form-control" name="foto"  id="foto"  >
             {{ $errors->first('imagen', '<div class="invalid-feedback">:message</div>') }}            

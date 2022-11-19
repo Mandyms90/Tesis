@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>                                         
                                             <td>
-                                                <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$carrucel->foto }}" width="150" alt="" >     
+                                                <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$carrucel->foto }}" style="width: 100px; height: 100px;  object-fit: scale-down;" >     
                                             </td>                                       
                                             <td>
                                                 <form action="{{ route('carrucels.destroy',$carrucel->id) }}" method="POST">

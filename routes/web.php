@@ -9,6 +9,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\CarrucelController;
+use App\Http\Controllers\BoletinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,6 @@ Route::get('/config', function () {
     return view('config');
 });
 
-
-    
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -44,6 +42,7 @@ Route::get('/',[App\Http\Controllers\CarrucelController::class, 'welcome']);
 
 // Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
 Route::resource('informes',App\Http\Controllers\InformeController::class);
+Route::resource('boletines',App\Http\Controllers\BoletinController::class);
 Route::resource('config',App\Http\Controllers\CarrucelController::class)->middleware('auth');
 
 Route::group(['middleware' => ['auth']], function(){
