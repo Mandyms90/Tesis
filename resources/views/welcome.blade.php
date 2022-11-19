@@ -57,6 +57,7 @@
                     <div class="card" style="width: 18rem;">
                       <img src="{{ asset('img/a894b60826ff418671148d6b647ea727.jpeg') }}" class="card-img-top" alt="...">
                       <div class="card-body">
+                        <p class="h4"> Título </p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
                       </div>
                     </div>       

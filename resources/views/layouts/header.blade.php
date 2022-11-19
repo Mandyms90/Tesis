@@ -15,7 +15,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-tools"></i> Administración </a>
             <div class="dropdown-menu">
             <a class="dropdown-item" href="/carrucels"> Carrucel de Bienvenida </a>
-            <a class="dropdown-item" href="#"> Noticias </a>
+            <a class="dropdown-item" href="/noticias"> Noticias </a>
             <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/informes"> Informes </a>
                 <a class="dropdown-item" href="/boletines"> Boletines </a>
