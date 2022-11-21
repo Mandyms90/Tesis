@@ -14,11 +14,20 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-tools"></i> Administración </a>
             <div class="dropdown-menu">
-            <a class="dropdown-item" href="/carrucels"> Carrucel de Bienvenida </a>
-            <a class="dropdown-item" href="/noticias"> Noticias </a>
+            <a class="dropdown-item" href="/carrucels"><i class="fas fa-images fa-fw" ></i><span> Carrucel de Bienvenida </span> </a>
+            <a class="dropdown-item" href="/noticias"><i class="fas fa-newspaper fa-fw" ></i><span> Noticias </span></a>
+            <a class="dropdown-item" href="/informes"><i class="fas fa-pencil-alt fa-fw" ></i><span> Informes </span></a>
+            <a class="dropdown-item" href="/boletines"><i class="fas fa-book fa-fw" ></i><span> Boletines </span></a>
             <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/informes"> Informes </a>
-                <a class="dropdown-item" href="/boletines"> Boletines </a>
+                <a class="dropdown-item" href="/usuarios">
+                    <i class=" fas fa-users"></i><span> Usuarios </span>
+                </a>
+                <a class="dropdown-item" href="/roles">
+                    <i class=" fas fa-user-lock"></i><span> Roles </span>
+                </a>
+                <a class="dropdown-item" href="/blogs">
+                    <i class=" fas fa-blog"></i><span> Blogs </span>
+            </a>
             </div>
           </li>         
     </ul>

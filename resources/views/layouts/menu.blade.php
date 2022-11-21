@@ -11,17 +11,14 @@
     <a class="nav-link" href="/">
         <i class="fas fa-book fa-fw" ></i><span>Boletines</span>
     </a>        
-    <a class="nav-link" href="/usuarios">
-        <i class=" fas fa-users"></i><span>Usuarios</span>
+    {{--  <a class="nav-link" href="/usuarios">
+        <i class=" fas fa-users"></i><span> Usuarios </span>
     </a>
     <a class="nav-link" href="/roles">
-        <i class=" fas fa-user-lock"></i><span>Roles</span>
+        <i class=" fas fa-user-lock"></i><span> Roles </span>
     </a>
     <a class="nav-link" href="/blogs">
-        <i class=" fas fa-blog"></i><span>Blogs</span>
+        <i class=" fas fa-blog"></i><span> Blogs </span>
     </a>
-    <a class="nav-link" href="/config">
-        <i class=" fas fa-blog"></i><span>Administración</span>
-    </a>
-
+      --}}
 </li>

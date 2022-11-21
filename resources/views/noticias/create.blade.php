@@ -5,23 +5,25 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heaading"> Agregar Nueva Noticia </h3>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @includeif('partials.errors')
 
-                @includeif('partials.errors')
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title"> Crear Noticia </span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('noticias.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-                            @include('noticias.form')
-
-                        </form>
-                    </div>
+                            <div class="card card-default">                               
+                                <form method="POST" action="{{ route('noticias.store') }}"  role="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @include('noticias.form')            
+                                </form>                            
+                            </div>
+                        </div>
+                    </div>   
                 </div>
             </div>
         </div>

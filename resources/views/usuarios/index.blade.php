@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-body">
                             
-                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+                            <a class="btn btn-success" href="{{ route('usuarios.create') }}">  Crear Usuario </a>
                             
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #6777ef;">
@@ -35,7 +35,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
+                                                <a class="btn btn-warning" href="{{ route('usuarios.edit', $usuario->id) }}"> Editar </a>
                                                 {{ Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id ], 'style'=>'display:inline']) }}
                                                     {{ Form::submit('Borrar', ['class'=>'btn btn-danger']) }}
                                                 {{ Form::close() }}

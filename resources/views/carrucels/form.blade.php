@@ -8,9 +8,7 @@
             @endif
             <input  type="file" accept=".jpg,.jpeg,.png" class="form-control" name="foto"  id="foto"  >
             {{ $errors->first('imagen', '<div class="invalid-feedback">:message</div>') }}            
-        </div>
-        
-
+        </div>   
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-success"> Guardar </button>

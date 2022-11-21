@@ -12,7 +12,7 @@
                         <div class="card-body">
                             
                             @can('crear-rol')
-                            <a class="btn btn-warning" href="{{ route('roles.create') }}" >Nuevo</a>                                
+                            <a class="btn btn-success" href="{{ route('roles.create') }}" > Crear Rol </a>                                
                             @endcan
                             
                             <table class="table table-striped mt-2">
@@ -26,7 +26,7 @@
                                         <td>{{ $role->name }}</td>                              
                                         <td>
                                             @can('editar-rol')
-                                                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}" >Editar</a>                                
+                                                <a class="btn btn-warning" href="{{ route('roles.edit',$role->id) }}" > Editar </a>                                
                                             @endcan
                                             
                                             @can('borrar-rol')

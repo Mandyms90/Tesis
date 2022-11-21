@@ -5,24 +5,25 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heaading"> Editar Imagen del Carrucel </h3>
+        </div>
 
-                @includeif('partials.errors')
+        <div class="section-body">
+            <div class="row">
+                <div class="col-md-12">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Carrucel</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('carrucels.update', $carr->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
+                    @includeif('partials.errors')
 
-                            @include('carrucels.form')
-
-                        </form>
+                    <div class="card card-default">                       
+                        <div class="card-body">
+                            <form method="POST" action="{{ route('carrucels.update', $carr->id) }}"  role="form" enctype="multipart/form-data">
+                                {{ method_field('PATCH') }}
+                                @csrf
+                                @include('carrucels.form')
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

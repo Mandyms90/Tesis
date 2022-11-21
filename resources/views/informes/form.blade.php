@@ -17,7 +17,7 @@
             {{ Form::label('imagen') }}
             <br>
             @if (@isset($informe->imagen))
-            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}"  alt="" >
+            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('storage').'/'.$informe->imagen }}" style="width: 90px; height: 90px;  object-fit: scale-down;" >
             @endif
             <input  type="file" accept=".jpg,.jpeg,.png" class="form-control" name="imagen"  id="imagen"  >
             {{ $errors->first('imagen', '<div class="invalid-feedback">:message</div>') }}
@@ -30,7 +30,7 @@
             {{ Form::label('Documento') }}
             <br>
             @if (@isset($informe->pdf))
-            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('img/pdf ico.jpg') }}"  alt="" >
+            <img class="img-thumbnail img-fluid border border-5" src="{{ asset('img/pdf ico.jpg') }}" style="width: 90px; height: 90px;  object-fit: scale-down;" >
             @endif
             <input  type="file" accept=".pdf" class="form-control" name="pdf"  id="pdf"  >
             {{--  {{ Form::text('pdf', $informe->pdf, ['class' => 'form-control' . ($errors->has('pdf') ? ' is-invalid' : ''), 'placeholder' => 'Pdf']) }}  --}}
