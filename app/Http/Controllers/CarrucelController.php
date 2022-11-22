@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrucel;
+use App\Models\Noticia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,8 +28,8 @@ class CarrucelController extends Controller
     public function welcome()
     {
         $carr = Carrucel::paginate();
-
-        return view('welcome', compact('carr'));            
+        $noticias = Noticia::paginate();
+        return view('welcome', compact('carr','noticias'));            
     }
 
     /**
