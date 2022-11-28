@@ -24,7 +24,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'active',
     ];
+
+    public function informe()
+    {
+        return $this->hasMany(Informe::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

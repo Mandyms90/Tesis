@@ -12,6 +12,11 @@
             {{ Form::text('descripcion', $informe->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('Público') }}
+            {{ Form::checkbox('private', $informe->private, ['class' => 'form-control' . ($errors->has('private') ? ' is-invalid' : ''), 'placeholder' => 'Público']) }}
+            {!! $errors->first('private', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
         <div class="form-group">
             {{ Form::label('imagen') }}

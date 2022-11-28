@@ -20,7 +20,8 @@ class SuperAdminSeeder extends Seeder
         $usuario = User::create([
             'name' => 'SuperAdmin',
             'email' => 'amoreiras1990@yahoo.es',
-            'password' => bcrypt('shiroums1990')
+            'password' => bcrypt('shiroums1990'),
+            'active' => true
         ]);
 
         // Estas lineas en caso de que no se haya creado el rol aun

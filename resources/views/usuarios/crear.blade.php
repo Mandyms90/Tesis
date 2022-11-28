@@ -32,40 +32,40 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
+                                        <label for="name"> Nombre </label>
                                         {!! Form::text('name', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email"> Email </label>
                                         {!! Form::text('email', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="password">Password</label>
+                                        <label for="password"> Password </label>
                                         {!! Form::text('password', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="confirm-password">Confirmar Password</label>
+                                        <label for="confirm-password"> Confirmar Password </label>
                                         {!! Form::text('confirm-password', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="">Roles</label>
+                                        <label for=""> Roles </label>
                                         {!! Form::select('roles[]', $roles,[], array('class' => 'form-control')) !!}
                                     </div>
                                 </div>                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary"> Guardar </button>
                                 </div>
-
+                                
                             </div>
-                        
+
                         {{ Form::close() }}
                         
                         </div>

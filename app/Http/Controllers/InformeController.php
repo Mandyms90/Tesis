@@ -46,7 +46,8 @@ class InformeController extends Controller
     {
         $campos=[
             'titulo'=>'required|string|max:100',
-            'descripcion'=>'required|string|max:100'          
+            'descripcion'=>'required|string|max:100', 
+            'private'=>'required|true|false'
         ];
         
         $this->validate($request, $campos);

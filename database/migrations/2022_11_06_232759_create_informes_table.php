@@ -14,11 +14,17 @@ class CreateInformesTable extends Migration
     public function up()
     {
         Schema::create('informes', function (Blueprint $table) {
+            // Borrado en Cascada
+            $table->engine="InnoDB"; 
+
             $table->id();
             $table->string('titulo');
             $table->text('descripcion');
             $table->string('imagen');
             $table->string('pdf');
+            $table->boolean('private')->default(false);
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade");
             $table->timestamps();
         });
     }

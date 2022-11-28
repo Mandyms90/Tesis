@@ -57,6 +57,12 @@
                                         {{ Form::select('roles[]', $roles,[], array('class' => 'form-control')) }}
                                     </div>
                                 </div>                                
+                                {{--  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label for=""> Cuenta Activa </label>                                        
+                                        {!! Form::checkbox('active', true) !!}                                       
+                                    </div>
+                                </div>                                  --}}
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>

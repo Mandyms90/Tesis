@@ -27,6 +27,9 @@ class Informe extends Model
 		'descripcion' => 'required',
 		'imagen' => 'required',
 		'pdf' => 'required',
+    'private' => 'required',
+    'user_id' => 'required',
+
     ];
 
     protected $perPage = 20;
@@ -36,8 +39,12 @@ class Informe extends Model
      *
      * @var array
      */
-    protected $fillable = ['titulo','descripcion','imagen','pdf'];
+    protected $fillable = ['titulo','descripcion','imagen','pdf','private','user_id'];
 
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 
 
 }
