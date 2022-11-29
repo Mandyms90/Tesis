@@ -17,6 +17,13 @@
             {{ Form::checkbox('private', $informe->private, ['class' => 'form-control' . ($errors->has('private') ? ' is-invalid' : ''), 'placeholder' => 'Público']) }}
             {!! $errors->first('private', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+       
+            <div class="form-group">
+                {{ Form::label('user_id') }}
+                {{ Form::select('user_id', $users, $informe->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario']) }}
+                {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
+            </div>            
+       
 
         <div class="form-group">
             {{ Form::label('imagen') }}

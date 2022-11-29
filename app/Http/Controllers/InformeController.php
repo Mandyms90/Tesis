@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Informe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,7 +34,8 @@ class InformeController extends Controller
     public function create()
     {
         $informe = new Informe();
-        return view('informes.create', compact('informe'));
+        $users = User::pluck('name','id');
+        return view('informes.create', compact('informe','users'));
     }
 
     /**
@@ -47,7 +49,7 @@ class InformeController extends Controller
         $campos=[
             'titulo'=>'required|string|max:100',
             'descripcion'=>'required|string|max:100', 
-            'private'=>'required|true|false'
+            // 'private'=>'required|true|false'
         ];
         
         $this->validate($request, $campos);
