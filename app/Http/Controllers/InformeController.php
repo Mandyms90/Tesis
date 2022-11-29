@@ -46,28 +46,30 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->input());
         $campos=[
             'titulo'=>'required|string|max:100',
-            'descripcion'=>'required|string|max:100', 
+            'descripcion'=>'required|string|max:100',
             // 'private'=>'required|true|false'
         ];
-        
+
         $this->validate($request, $campos);
 
-        
+
         // Recolectame todos los datos que te envien del formulario, excepto token
-        
+
         $datosInforme = request()->except('_token');
-        
+
         if($request->hasFile('imagen')){
             $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');
             }
         if($request->hasFile('pdf')){
             $datosInforme['pdf']=$request->file('pdf')->store('uploads','public');
             }
-        
-        Informe::insert($datosInforme);        
-        
+
+        Informe::insert($datosInforme);
+
         return redirect('informes/')->with('success','Informe agregado con exito');
 
         // request()->validate(Informe::$rules);
@@ -116,31 +118,31 @@ class InformeController extends Controller
     {
         $campos=[
             'titulo'=>'required|string|max:100',
-            'descripcion'=>'required|string|max:100'          
+            'descripcion'=>'required|string|max:100'
         ];
         // $mensaje=[
         //     'required'=>'El :attribute es requerido',
-        //     'Foto.required'=>'La foto requerida',    
+        //     'Foto.required'=>'La foto requerida',
         // ];
-                    
+
         $this->validate($request, $campos);
 
         $datosInforme = request()->except('_token','_method');
-        
+
         if($request->hasFile('imagen')){
             $informe=Informe::findOrFail($id);
             Storage::delete('public/'.$informe->imagen);
-            $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');            
+            $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');
         }
         if($request->hasFile('pdf')){
             $informe=Informe::findOrFail($id);
             Storage::delete('public/'.$informe->pdf);
-            $datosInforme['pdf']=$request->file('pdf')->store('uploads','public');            
+            $datosInforme['pdf']=$request->file('pdf')->store('uploads','public');
         }
-                       
+
         Informe::where('id','=',$id)->update($datosInforme);
         $informe=Informe::findOrFail($id);
-         
+
         return redirect('informes/')->with('success','Informe editado con exito');
 
         // request()->validate(Informe::$rules);
@@ -160,7 +162,7 @@ class InformeController extends Controller
     {
         $informe = Informe::findOrFail($id);
         Storage::delete('public/'.$informe->imagen);
-        Storage::delete('public/'.$informe->pdf);       
+        Storage::delete('public/'.$informe->pdf);
         $informe->delete();
         return redirect()->route('informes.index')
             ->with('success', 'Informe borrado con exito');
