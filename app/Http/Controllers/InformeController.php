@@ -47,11 +47,11 @@ class InformeController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->input());
+        // dd($request->input());
         $campos=[
             'titulo'=>'required|string|max:100',
             'descripcion'=>'required|string|max:100',
-            // 'private'=>'required|true|false'
+            
         ];
 
         $this->validate($request, $campos);
@@ -60,6 +60,9 @@ class InformeController extends Controller
         // Recolectame todos los datos que te envien del formulario, excepto token
 
         $datosInforme = request()->except('_token');
+
+        $datosInforme['private'] = $datosInforme['private'] === 'on' ? 1 : 0;
+
 
         if($request->hasFile('imagen')){
             $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');
