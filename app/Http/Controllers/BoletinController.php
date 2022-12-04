@@ -65,7 +65,7 @@ class BoletinController extends Controller
         
         Boletin::insert($datosBoletin);        
         
-        return redirect('boletines/')->with('success','Boletin agregado con exito');
+        return redirect('boletines/')->with('success','Boletín agregado con exito');
     }
 
     /**
@@ -126,7 +126,7 @@ class BoletinController extends Controller
         Boletin::where('id','=',$id)->update($datosBoletin);
         $boletin=Boletin::findOrFail($id);
          
-        return redirect('boletines/')->with('success','Boletin editado con exito');
+        return redirect('boletines/')->with('success','Boletín editado con exito');
     }
 
     /**
@@ -141,6 +141,6 @@ class BoletinController extends Controller
         Storage::delete('public/'.$boletin->pdf);       
         $boletin->delete();
         return redirect()->route('boletines.index')
-            ->with('success', 'Boletin borrado con exito');
+            ->with('success', 'Boletín borrado con exito');
     }
 }

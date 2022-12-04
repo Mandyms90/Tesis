@@ -14,6 +14,17 @@
                             @can('crear-rol')
                             <a class="btn btn-success" href="{{ route('roles.create') }}" > Crear Rol </a>                                
                             @endcan
+
+                            @if ($message = Session::get('success'))
+                            <br>
+                            <br>
+                            <div class="alert alert-success alert-dismissible">
+                                <p>{{ $message }}</p>
+                                <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                                </button>                            
+                            </div>
+                            @endif    
                             
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #6777ef">

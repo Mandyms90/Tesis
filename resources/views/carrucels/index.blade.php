@@ -20,6 +20,8 @@
                                                     
                            
                             @if ($message = Session::get('success'))
+                                <br>
+                                <br>
                                 <div class="alert alert-success alert-dismissible">
                                     <p>{{ $message }}</p>
                                     <button type="button" class="close" aria-label="Close" data-dismiss="alert">

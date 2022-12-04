@@ -62,7 +62,7 @@ class NoticiaController extends Controller
         // Recolectame todos los datos que te envien del formulario, excepto token
         
         
-        return redirect('noticias/')->with('success','Boletin agregado con exito');
+        return redirect('noticias/')->with('success','Noticia creada con exito');
     }
 
     /**
@@ -133,6 +133,6 @@ class NoticiaController extends Controller
         Storage::delete('public/'.$noticia->pdf);       
         $noticia->delete();
         return redirect()->route('noticias.index')
-            ->with('success', 'Informe borrado con exito');
+            ->with('success', 'Noticia borrada con exito');
     }
 }

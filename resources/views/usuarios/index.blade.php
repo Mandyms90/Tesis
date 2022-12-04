@@ -3,16 +3,25 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Usuarios</h3>
+            <h3 class="page__heading">Usuarios</h3>            
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12">                    
                     <div class="card">
                         <div class="card-body">
                             
                             <a class="btn btn-success" href="{{ route('usuarios.create') }}">  Crear Usuario </a>
-                            
+                            @if ($message = Session::get('success'))
+                                <br>
+                                <br>
+                                <div class="alert alert-success alert-dismissible">
+                                    <p>{{ $message }}</p>
+                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>                            
+                                </div>
+                            @endif    
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #6777ef;">
                                     <th style="display: none;">ID</th>

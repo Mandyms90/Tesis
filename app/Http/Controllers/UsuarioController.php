@@ -50,9 +50,8 @@ class UsuarioController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required',
-            // 'active' => 'required|true'
+            'password' => 'required|min:5|same:confirm-password',
+            'roles' => 'required'            
         ]);
 
         $input = $request->all();
@@ -60,8 +59,9 @@ class UsuarioController extends Controller
 
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
-
-        return redirect()->route('usuarios.index');
+        $user->active = $request->input('active') === 'on' ? 1 : 0;
+        return redirect('usuarios/')->with('success','Usuario creado con exito');
+        // return redirect()->route('usuarios.index');
     }
 
     /**
@@ -87,10 +87,9 @@ class UsuarioController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name', 'name')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
-
         return view('usuarios.editar', compact('user','roles','userRole'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -113,16 +112,16 @@ class UsuarioController extends Controller
         }else {
             $input = Arr::except($input, array('password'));
         }
-
+        
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id', $id)->delete();
-
+        
         $user->assignRole($request->input('roles'));
-        return redirect()->route('usuarios.index');
-
+        return redirect('usuarios/')->with('success','Usuario editado con exito');
+        
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -133,6 +132,8 @@ class UsuarioController extends Controller
     {
         //
         User::find($id)->delete();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')
+            ->with('success', 'Usuario borrado con exito');
+        // return redirect()->route('usuarios.index');
     }
 }
