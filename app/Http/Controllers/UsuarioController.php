@@ -100,6 +100,7 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         //Mes dio un error cuando editaba un usuario, lo solucione cambiando la linea 105 (agregando una ') 'email' =>'required| email|unique:users,email,'.$id,
+        
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
@@ -114,7 +115,8 @@ class UsuarioController extends Controller
         }
         
         $user = User::find($id);
-        $user->update($input);
+        $user->active = $request->input('active') === 'on' ? 1 : 0;
+        $user->update();
         DB::table('model_has_roles')->where('model_id', $id)->delete();
         
         $user->assignRole($request->input('roles'));

@@ -56,13 +56,16 @@
                                         <label for="">Roles</label>
                                         {{ Form::select('roles[]', $roles,[], array('class' => 'form-control')) }}
                                     </div>
-                                </div>                                
-                                {{--  <div class="col-xs-12 col-sm-12 col-md-12">
+                                </div> 
+                                <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for=""> Cuenta Activa </label>                                        
-                                        {!! Form::checkbox('active', true) !!}                                       
-                                    </div>
-                                </div>                                  --}}
+                                        <label for="">Activo:</label>
+                                        <div class="form-check form-switch">
+                                            <input name="active" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ $user !== 'none' && $user->active === 1 ? 'checked' : $user === 'none' ? 'checked' : '' }}>
+                                        </div>
+                                    </div>                     
+                                </div>
+                                <hr>                               
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
                                 </div>

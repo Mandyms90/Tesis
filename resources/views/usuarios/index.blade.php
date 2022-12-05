@@ -28,6 +28,7 @@
                                     <th style="color: #fff;">Nombre</th>
                                     <th style="color: #fff;">E-mail</th>
                                     <th style="color: #fff;">Rol</th>
+                                    <th style="color: #fff;">Activo</th>
                                     <th style="color: #fff;">Acciones</th>                                    
                                 </thead>
                                 <tbody>
@@ -42,6 +43,11 @@
                                                         <h5><span class="badge badge-dark">{{ $rolName }}</span></h5>
                                                     @endforeach
                                                 @endif
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{$usuario->active ? 'checked' : ''}} disabled>
+                                                </div>
                                             </td>
                                            
                                             <td>
