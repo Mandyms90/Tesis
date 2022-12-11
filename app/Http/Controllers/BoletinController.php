@@ -19,7 +19,7 @@ class BoletinController extends Controller
      */
     public function index()
     {
-        $boletines = Boletin::paginate();
+        $boletines = Boletin::paginate(5);
 
         return view('boletines.index', compact('boletines'))
             ->with('i', (request()->input('page', 1) - 1) * $boletines->perPage());

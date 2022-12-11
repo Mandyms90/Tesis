@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination justify-content-end">
+                    <div class="pagination ">
                         {!! $informes->links() !!}
                     </div>
                 </div>

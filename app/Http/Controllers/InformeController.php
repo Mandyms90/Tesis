@@ -20,7 +20,7 @@ class InformeController extends Controller
      */
     public function index()
     {
-        $informes = Informe::paginate();
+        $informes = Informe::paginate(5);
 
         return view('informes.index', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());

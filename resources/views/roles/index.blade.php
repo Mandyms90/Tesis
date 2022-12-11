@@ -68,7 +68,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="paginatio{n justify-content-end">
+                            <div class="pagination">
                                 {{ $roles->links() }}
                             </div>
                         </div>

@@ -20,7 +20,7 @@ class CarrucelController extends Controller
      */
     public function index()
     {
-        $carr = Carrucel::paginate();
+        $carr = Carrucel::paginate(5);
 
         return view('carrucels.index', compact('carr'))
             ->with('i', (request()->input('page', 1) - 1) * $carr->perPage());

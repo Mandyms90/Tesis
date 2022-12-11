@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination justify-content-end">
+                    <div class="pagination">
                         {{ $boletines->links() }}
                     </div>
                 </div>

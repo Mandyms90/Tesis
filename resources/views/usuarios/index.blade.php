@@ -74,7 +74,7 @@
                                 </tbody>
                             </table>
                             
-                            <div class="pagination justify-content-end">
+                            <div class="pagination">
                                 {{ $usuarios->links() }}    
                             </div>
                         </div>

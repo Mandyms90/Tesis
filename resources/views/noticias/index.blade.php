@@ -65,7 +65,7 @@
                             </div>                           
                         </div>
                     </div>
-                    <div class="pagination justify-content-end">
+                    <div class="pagination">
                         {!! $noticias->links() !!}
                     </div>
                 </div>
