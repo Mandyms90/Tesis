@@ -36,23 +36,33 @@
                                     <tr>
                                         <td>{{ $role->name }}</td>                              
                                         <td>
-                                            @can('editar-rol')
-                                                <a class="btn btn-warning" href="{{ route('roles.edit',$role->id) }}" > Editar </a>                                
-                                            @endcan
-                                            
-                                            @can('borrar-rol')
-                                                {{--  <form action="{{ url('/delete'.$role->id) }}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    {{ method_field('DELETE') }}
-                                                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
-                                                </form>    --}}
-                                                         {{--No me pincha este codigo    --}}
-                                                {{ Form::open(['method'=> 'DELETE', 'route'=> ['roles.destroy', $role->id ], 'style'=>'display:inline']) }}
-                                                    {{ Form::submit('Borrar', ['class'=>'btn btn-danger']) }}
-                                                {{ Form::close() }}
-                                            @endcan
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="d-inline p-1">
+                                                        @can('editar-rol')
+                                                            <a class="btn btn-sm btn-warning" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-fw fa-edit"></i></a>                              
+                                                        @endcan
+                                                    </div>
+                                                    <div class="d-inline p-1">
+                                                        @can('borrar-rol')
+                                                            <form action="{{ route('roles.destroy',$role->id) }}" method="POST">                                              
+                                                                
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar este rol?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                            </form>
+                                                            {{--  {{ Form::open(['method'=> 'DELETE', 'route'=> ['roles.destroy', $role->id ], 'style'=>'display:inline']) }}
+                                                                {{ Form::submit('Borrar', ['class'=>'btn btn-danger']) }}
+                                                            {{ Form::close() }}  --}}
+                                                        @endcan
+                                                    </div>
+                                                </div>
 
-                                           </td>                                                               
+                                                </div>
+
+                                            
+                                            
+                                        </td>                                                               
                                                             
                                         </tr>     
                                     @endforeach

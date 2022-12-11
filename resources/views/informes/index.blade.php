@@ -59,11 +59,11 @@
                                                     </td>
                                                 <td>
                                                     <form action="{{ route('informes.destroy',$informe->id) }}" method="POST">
-                                                        <a class="btn btn-sm btn-primary " href="{{ route('informes.show',$informe->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                        <a class="btn btn-sm btn-warning" href="{{ route('informes.edit',$informe->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                        <a class="btn btn-sm btn-primary " href="{{ route('informes.show',$informe->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                        <a class="btn btn-sm btn-warning" href="{{ route('informes.edit',$informe->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar el informe?')" ><i class="fa fa-fw fa-trash" ></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

@@ -51,10 +51,16 @@
                                             </td>
                                            
                                             <td>
-                                                <a class="btn btn-warning" href="{{ route('usuarios.edit', $usuario->id) }}"> Editar </a>
+                                                <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST">                                                    
+                                                    <a class="btn btn-sm btn-warning" href="{{ route('usuarios.edit',$usuario->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar este usuario?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                </form>
+                                                {{--  <a class="btn btn-warning" href="{{ route('usuarios.edit', $usuario->id) }}"> Editar </a>
                                                 {{ Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id ], 'style'=>'display:inline']) }}
                                                     {{ Form::submit('Borrar', ['class'=>'btn btn-danger']) }}
-                                                {{ Form::close() }}
+                                                {{ Form::close() }}  --}}
 
                                                 {{--  Boton de Borrado  --}}                                             
                                                 {{--  <form action="{{ url('/delete'.$usuario->id) }}" method="POST" class="d-inline">
