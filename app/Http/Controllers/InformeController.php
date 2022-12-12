@@ -25,6 +25,13 @@ class InformeController extends Controller
         return view('informes.index', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
     }
+    // public function inf_publicos()
+    // {
+    //     $informes = Informe::paginate(5);
+
+    //     return view('inf_publicos', compact('informes'))
+    //         ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -46,23 +53,36 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
-
         // dd($request->input());
-        $campos=[
+        // $campos=[
+        //     'titulo'=>'required|string|max:100',
+        //     'descripcion'=>'required|string|max:100',
+                        
+        // ];
+
+        // $this->validate($request, $campos);
+        
+        $datosInforme = $request->validate([
             'titulo'=>'required|string|max:100',
-            'descripcion'=>'required|string|max:100',
-            
-        ];
+            'descripcion'=>'required|string|max:100'
+        ],[
+            'titulo.required' => 'Este campo es requerido',
+            'descripcion.required' =>'Este campo es requerido'
 
-        $this->validate($request, $campos);
-
-
-        // Recolectame todos los datos que te envien del formulario, excepto token
+        ]);
 
         $datosInforme = request()->except('_token');
 
-        $datosInforme['private'] = $datosInforme['private'] === 'on' ? 1 : 0;
-
+        
+        $datosInforme['private'] = isset($request->private) ? 1 : 0; 
+        if ($datosInforme['private'] === 1 and $datosInforme['user_id'] === NULL) {
+           $datosInforme = $request->validate([
+            'user_id'=>'required'
+           ],[
+            'user_id.required'=>'Es requerido seleccionar un usuario del listado'
+           ]);
+        }
+    
 
         if($request->hasFile('imagen')){
             $datosInforme['imagen']=$request->file('imagen')->store('uploads','public');
@@ -75,12 +95,6 @@ class InformeController extends Controller
 
         return redirect('informes/')->with('success','Informe agregado con exito');
 
-        // request()->validate(Informe::$rules);
-
-        // $informe = Informe::create($request->all());
-
-        // return redirect()->route('informes.index')
-        //     ->with('success', 'Informe created successfully.');
     }
 
     /**

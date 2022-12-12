@@ -13,20 +13,24 @@
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
-        <div class="form-group mb-3">
+        {{--  <div class="form-group mb-3">
             <label for=""> Privado </label>
             <div class="form-check form-switch">
                 <input name="private" id="private" class="form-check-input" type="checkbox" role="switch" onchange="handleShowHide()" {{ $informe->private === 1 ? 'checked' : '' }}>
             </div>
+        </div>  --}}
+
+        <div class="form-group" id="informeType">
+            {{ Form::label('Privado') }}
+            {{ Form::checkbox('private', $informe->private, ['class' => 'form-control' . ($errors->has('private') ? ' is-invalid' : '')],['onchange'=>"handleShowHide(this.value)", 'id'=>'private'])}}
+            {!! $errors->first('private', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
-        <!-- <div class="form-group" id="informeType">
-            {{ Form::label('Privado') }}
-            {{ Form::checkbox('private', $informe->private, ['class' => 'form-control informeType' . ($errors->has('private') ? ' is-invalid' : ''),'id' => 'informeType']) }}
-            {!! $errors->first('private', '<div class="invalid-feedback">:message</div>') !!}
-        </div> -->
+        
+       
         <hr class="my-4">
-        <div class="form-group" id="user">
+        
+        <div class="form-group"  id="user">
             {{ Form::label('Usuarios:') }}
             {{ Form::select('user_id', $users, $informe->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
@@ -63,16 +67,27 @@
         <a href="{{ url('/informes') }}" class="btn btn-primary"> Regresar </a>
     </div>
 </div>
+
 <script type=text/javascript>
+    
     function handleShowHide() {
         var informeType = document.getElementById('private').checked
-
+        
         if(informeType) {
             document.getElementById('user').style.display = 'inherit';
         } else{
             document.getElementById('user').style.display = 'none';
         }
-    }
+    } 
 </script>
 
+{{--  document.onload = function(){
+   var informeType = document.getElementById('private').checked
+
+   if(informeType) {
+       document.getElementById('user').style.display = 'inherit';
+   } else{
+       document.getElementById('user').style.display = 'none';
+   } 
+}  --}}
 

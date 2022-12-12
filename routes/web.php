@@ -32,16 +32,17 @@ Route::get('/info', function () {
 Route::get('/contactos', function () {
     return view('contactos');
 });
-Route::get('/config', function () {
-    return view('config');
-});
+// Route::get('/config', function () {
+//     return view('config');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/',[App\Http\Controllers\CarrucelController::class, 'welcome']);
+// Route::get('/inf_publicos',[App\Http\Controllers\InformeController::class, 'inf_publicos']);
 
-// Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
+
 Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
 Route::resource('boletines',App\Http\Controllers\BoletinController::class)->middleware('auth');
 Route::resource('noticias',App\Http\Controllers\NoticiaController::class)->middleware('auth');

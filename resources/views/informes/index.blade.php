@@ -28,7 +28,8 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>                            
                                 </div>
-                            @endif    
+                            @endif 
+                               
                             <div class="table-responsive table-striped mt-2">
                                 <table class="table table-hover">
                                     <thead class="thead" style="background-color: #6777ef;">
