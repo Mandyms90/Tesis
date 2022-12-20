@@ -5,7 +5,7 @@
     <a class="nav-link" href="https://cursos.disaic.cu/" target="_blank">
         <i class="fas fa-chalkboard-teacher fa-fw" ></i><span>Plataforma Virtual de Entrenamiento</span>
     </a>
-<a class="nav-link" href="/informes">
+<a class="nav-link" href="/inf_publicos">
         <i class="fas fa-pencil-alt fa-fw" ></i><span>Informes Públicos</span>
     </a>
     <a class="nav-link" href="/">

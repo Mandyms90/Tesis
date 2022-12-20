@@ -25,13 +25,12 @@ class InformeController extends Controller
         return view('informes.index', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
     }
-    // public function inf_publicos()
-    // {
-    //     $informes = Informe::paginate(5);
-
-    //     return view('inf_publicos', compact('informes'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
-    // }
+    public function inf_publicos()
+    {        
+        $informes = Informe::where('private',0) -> paginate(5);
+        return view('inf_publicos', compact('informes'))
+            ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -119,8 +118,8 @@ class InformeController extends Controller
     public function edit($id)
     {
         $informe = Informe::find($id);
-
-        return view('informes.edit', compact('informe'));
+        $users = User::all();
+        return view('informes.edit', compact('informe','users'));
     }
 
     /**

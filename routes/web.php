@@ -40,7 +40,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/',[App\Http\Controllers\CarrucelController::class, 'welcome']);
-// Route::get('/inf_publicos',[App\Http\Controllers\InformeController::class, 'inf_publicos']);
+Route::get('/inf_publicos',[App\Http\Controllers\InformeController::class, 'inf_publicos']);
 
 
 Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
