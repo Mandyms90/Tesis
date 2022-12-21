@@ -6,7 +6,7 @@ use App\Models\Informe;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Controllers\DB;
 /**
  * Class InformeController
  * @package App\Http\Controllers
@@ -25,13 +25,13 @@ class InformeController extends Controller
         return view('informes.index', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
     }
-    // public function inf_publicos()
-    // {
-    //     $informes = Informe::paginate(5);
-
-    //     return view('inf_publicos', compact('informes'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
-    // }
+    
+    public function inf_publicos()
+    {       
+        $informes = Informe::where('private', 0)->paginate(10);
+        return view('inf_publicos', compact('informes'))
+            ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());            
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -70,7 +70,7 @@ class InformeController extends Controller
             'descripcion.required' =>'Este campo es requerido'
 
         ]);
-
+ 
         $datosInforme = request()->except('_token');
 
         
@@ -118,9 +118,10 @@ class InformeController extends Controller
      */
     public function edit($id)
     {
-        $informe = Informe::find($id);
-
-        return view('informes.edit', compact('informe'));
+        $informe = Informe::find($id);       
+        // $users = DB::table('users')->get();
+        $users = User::all();
+        return view('informes.edit', compact('informe', 'users'));
     }
 
     /**

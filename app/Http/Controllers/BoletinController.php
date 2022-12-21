@@ -25,6 +25,13 @@ class BoletinController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $boletines->perPage());
     }
 
+    public function boletines_pub()
+    {       
+        $boletines = Boletin::paginate(5);
+        return view('boletines_pub', compact('boletines'))
+            ->with('i', (request()->input('page', 1) - 1) * $boletines->perPage());            
+    }
+
     /**
      * Show the form for creating a new resource.
      *
