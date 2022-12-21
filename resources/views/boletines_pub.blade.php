@@ -13,17 +13,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">                     
-                        <div class="card-body">                                    
-                            @if ($message = Session::get('success'))
-                                <br>
-                                <br>                            
-                                <div class="alert alert-success alert-dismissible">
-                                    <p>{{ $message }}</p>
-                                    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>                            
-                                </div>
-                            @endif    
+                        <div class="card-body">                               
                             <div class="table-responsive table-striped mt-2">
                                 <table class="table table-hover">
                                     <thead class="thead" style="background-color: #6777ef;">
