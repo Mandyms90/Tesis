@@ -25,20 +25,13 @@ class InformeController extends Controller
         return view('informes.index', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
     }
-<<<<<<< HEAD
-    
-    public function inf_publicos()
-    {       
-        $informes = Informe::where('private', 0)->paginate(10);
-        return view('inf_publicos', compact('informes'))
-            ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());            
-=======
+
+
     public function inf_publicos()
     {        
         $informes = Informe::where('private',0) -> paginate(5);
         return view('inf_publicos', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
->>>>>>> 25b53d00e07b6b42911090dfb0951f92da23ee7b
     }
 
     /**
@@ -126,16 +119,9 @@ class InformeController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
-        $informe = Informe::find($id);       
-        // $users = DB::table('users')->get();
-        $users = User::all();
-        return view('informes.edit', compact('informe', 'users'));
-=======
         $informe = Informe::find($id);
         $users = User::all();
         return view('informes.edit', compact('informe','users'));
->>>>>>> 25b53d00e07b6b42911090dfb0951f92da23ee7b
     }
 
     /**

@@ -41,10 +41,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/',[App\Http\Controllers\CarrucelController::class, 'welcome']);
 Route::get('/inf_publicos',[App\Http\Controllers\InformeController::class, 'inf_publicos']);
-<<<<<<< HEAD
 Route::get('/boletines_pub',[App\Http\Controllers\BoletinController::class, 'boletines_pub']);
-=======
->>>>>>> 25b53d00e07b6b42911090dfb0951f92da23ee7b
+
+
 
 
 Route::resource('informes',App\Http\Controllers\InformeController::class)->middleware('auth');
