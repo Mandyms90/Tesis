@@ -4,7 +4,7 @@
   <section class="section">
     <div class="section-header">
       <div class="page__heading ">
-        <h3 class="page__heaading"> Informes Públicos </h3> 
+        <h3 class="page__heaading"> {{ Request::is('inf_publicos') ? 'Informes Públicos' : 'Informes Privados' }} </h3> 
       </div>             
     </div>  
     <div class="section-body">

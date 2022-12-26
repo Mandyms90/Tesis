@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\Auth;
+
 /**
  * Class InformeController
  * @package App\Http\Controllers
@@ -30,6 +32,17 @@ class InformeController extends Controller
     public function inf_publicos()
     {        
         $informes = Informe::where('private',0) -> paginate(5);
+        return view('inf_publicos', compact('informes'))
+            ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
+    }
+
+    public function inf_privados()
+    {        
+        // $informes = Informe::where('user_id',) -> paginate(5);
+
+        $informes = Informe::where('user_id', Auth::user()->id) -> paginate(5);
+
+
         return view('inf_publicos', compact('informes'))
             ->with('i', (request()->input('page', 1) - 1) * $informes->perPage());
     }
@@ -120,7 +133,7 @@ class InformeController extends Controller
     public function edit($id)
     {
         $informe = Informe::find($id);
-        $users = User::all();
+        $users = User::pluck('name','id');
         return view('informes.edit', compact('informe','users'));
     }
 

@@ -20,11 +20,10 @@
                 @endif
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input aria-describedby="emailHelpBlock" id="email" type="email"
+                    <input id="email"
                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                            placeholder="Enter Email" tabindex="1"
-                           value="{{ (Cookie::get('email') !== null) ? Cookie::get('email') : old('email') }}" autofocus
-                           required>
+                           value="{{ old('email') }}" autofocus>
                     <div class="invalid-feedback">
                         {{ $errors->first('email') }}
                     </div>
@@ -39,11 +38,11 @@
                             </a>
                         </div>
                     </div>
-                    <input aria-describedby="passwordHelpBlock" id="password" type="password"
+                    <input id="password" type="password"
                            value="{{ (Cookie::get('password') !== null) ? Cookie::get('password') : null }}"
                            placeholder="Enter Password"
                            class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}" name="password"
-                           tabindex="2" required>
+                           tabindex="2">
                     <div class="invalid-feedback">
                         {{ $errors->first('password') }}
                     </div>
