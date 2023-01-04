@@ -39,7 +39,7 @@
                                   <a href="{{ asset('storage').'/'.$informe->pdf }}" target="_blank">
                                       <img src="{{ asset('img/pdf ico.jpg') }}" class="img-thumbnail img-fluid border border-5" alt="" style="width: 90px; height: 90px;  object-fit: scale-down;">
                                   </a>
-                                  </td>                                
+                              </td>                                
                           </tr>                     
                         
                       @endforeach

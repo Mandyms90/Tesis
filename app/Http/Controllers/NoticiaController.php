@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Storage;
  */
 class NoticiaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-noticia|crear-noticia|editar-noticia|borrar-noticia')->only('index');
+        $this->middleware('permission:crear-noticia',['only'=>['create','store']]);
+        $this->middleware('permission:editar-noticia',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-noticia',['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

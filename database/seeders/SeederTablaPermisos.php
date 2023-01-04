@@ -22,7 +22,22 @@ class SeederTablaPermisos extends Seeder
             'ver-rol',
             'crear-rol',
             'editar-rol',
-            'borrar-rol',
+            'borrar-rol',            
+            //tabla informes
+            'ver-informe',
+            'crear-informe',
+            'editar-informe',
+            'borrar-informe',
+            //tabla boletines
+            'ver-boletin',
+            'crear-boletin',
+            'editar-boletin',
+            'borrar-boletin',
+            //tabla noticias
+            'ver-noticia',
+            'crear-noticia',
+            'editar-noticia',
+            'borrar-noticia',       
             // tabla blogs
             'ver-blog',
             'crear-blog',

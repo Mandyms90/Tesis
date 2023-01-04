@@ -40,13 +40,13 @@
                                 <div class="col-md-4 col-xl-4">
                                     <div class="card bg-c-pink order-card">
                                         <div class="card-block">
-                                            <h5>Blogs</h5>
+                                            <h5>Informes</h5>
                                             @php
-                                                use App\Models\Blog;
-                                                $cant_blogs = User::count();
+                                                use App\Models\Informe;
+                                                $cant_informes = Informe::count();
                                             @endphp
-                                            <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{ $cant_blogs }}</span></h2>
-                                            <p class="m-b-0 text-right"><a href="/blogs" class="text-white">Ver más</a></p>
+                                            <h2 class="text-right"><i class="fa fa-users f-left"></i><span>{{ $cant_informes }}</span></h2>
+                                            <p class="m-b-0 text-right"><a href="/informes" class="text-white">Ver más</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Storage;
  */
 class BoletinController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-boletin|crear-boletin|editar-boletin|borrar-boletin')->only('index');
+        $this->middleware('permission:crear-boletin',['only'=>['create','store']]);
+        $this->middleware('permission:editar-boletin',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-boletin',['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

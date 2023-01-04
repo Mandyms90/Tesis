@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Auth;
  */
 class InformeController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-informe|crear-informe|editar-informe|borrar-informe')->only('index');
+        $this->middleware('permission:crear-informe',['only'=>['create','store']]);
+        $this->middleware('permission:editar-informe',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-informe',['only'=>['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
