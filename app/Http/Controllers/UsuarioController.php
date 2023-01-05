@@ -123,6 +123,8 @@ class UsuarioController extends Controller
         
         $user = User::find($id);
         $user->active = $request->input('active') === 'on' ? 1 : 0;
+        $user->name =$request-> input('name');
+        $user->email =$request-> input('email');        
         $user->update();
         DB::table('model_has_roles')->where('model_id', $id)->delete();
         
