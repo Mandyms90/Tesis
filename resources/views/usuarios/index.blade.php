@@ -10,8 +10,9 @@
                 <div class="col-lg-12">                    
                     <div class="card">
                         <div class="card-body">
-                            
-                            <a class="btn btn-success" href="{{ route('usuarios.create') }}">  Crear Usuario </a>
+                            @can('crear-usuario')
+                                <a class="btn btn-success" href="{{ route('usuarios.create') }}">  Crear Usuario </a>
+                            @endcan
                             @if ($message = Session::get('success'))
                                 <br>
                                 <br>
@@ -51,11 +52,15 @@
                                             </td>
                                            
                                             <td>
-                                                <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST">                                                    
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('usuarios.edit',$usuario->id) }}"><i class="fa fa-fw fa-edit"></i></a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar este usuario?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST">
+                                                    @can('editar-usuario')
+                                                        <a class="btn btn-sm btn-warning" href="{{ route('usuarios.edit',$usuario->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                    @endcan 
+                                                    @can('borrar-usuario')
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar este usuario?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                    @endcan                                                   
                                                 </form>
                                                 {{--  <a class="btn btn-warning" href="{{ route('usuarios.edit', $usuario->id) }}"> Editar </a>
                                                 {{ Form::open(['method'=> 'DELETE', 'route'=> ['usuarios.destroy', $usuario->id ], 'style'=>'display:inline']) }}

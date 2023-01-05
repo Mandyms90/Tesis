@@ -14,11 +14,12 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('carrucels.create') }}" class="btn btn-success" >
-                                {{ __('Agregar Imagen') }}
-                            </a>                             
-                                                    
-                           
+                            @can('crear-carrucel')
+                                <a href="{{ route('carrucels.create') }}" class="btn btn-success" >
+                                    {{ __('Agregar Imagen') }}
+                                </a>                             
+                            @endcan
+
                             @if ($message = Session::get('success'))
                                 <br>
                                 <br>
@@ -29,13 +30,16 @@
                                     </button>                            
                                 </div>
                             @endif
+
                             <div class="table-responsive table-striped mt-2">
                                 <table class="table table-hover">
                                     <thead class="thead" style="background-color: #6777ef;">
                                         <tr>
                                             <th style="color: #fff;"> No</th>                                    
                                             <th style="color: #fff;"> Imagen</th>
-                                            <th style="color: #fff;"> Acciones</th>
+                                            @can('editar-carrucel','borrar-carrucel')
+                                                <th style="color: #fff;"> Acciones</th>
+                                            @endcan
                                         </tr>
                                     </thead>
                                     <tbody>                        
@@ -47,10 +51,14 @@
                                                 </td>                                       
                                                 <td>
                                                     <form action="{{ route('carrucels.destroy',$carrucel->id) }}" method="POST">
-                                                        <a class="btn btn-sm btn-warning" href="{{ route('carrucels.edit',$carrucel->id) }}"><i class="fa fa-fw fa-edit"></i></a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar esta imagen?')" ><i class="fa fa-fw fa-trash" ></i></button>
+                                                        @can('editar-carrucel')
+                                                            <a class="btn btn-sm btn-warning" href="{{ route('carrucels.edit',$carrucel->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                        @endcan
+                                                        @can('borrar-carrucel')
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar esta imagen?')" ><i class="fa fa-fw fa-trash" ></i></button>
+                                                        @endcan
                                                     </form>
                                                 </td>
                                             </tr>

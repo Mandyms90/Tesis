@@ -13,10 +13,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">                  
-                            <a href="{{ route('noticias.create') }}" class="btn btn-success"  data-placement="left">
-                                {{ __('Crear Noticia') }}
-                            </a>
+                        <div class="card-body">
+                            @can('crear-noticia')
+                                <a href="{{ route('noticias.create') }}" class="btn btn-success"  data-placement="left">
+                                    {{ __('Crear Noticia') }}
+                                </a>
+                            @endcan                  
                         
                 
                             @if ($message = Session::get('success'))
@@ -50,12 +52,18 @@
                                                 <td>{{ $noticia->titulo }}</td>
                                                 <td style="width: 400px; height: 50px;  ">{{ $noticia->descripcion }}</td>
                                                 <td>
-                                                    <form action="{{ route('noticias.destroy',$noticia->id) }}" method="POST">                                                    
-                                                        <a class="btn btn-sm btn-primary " href="{{ route('noticias.show',$noticia->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                        <a class="btn btn-sm btn-warning" href="{{ route('noticias.edit',$noticia->id) }}"><i class="fa fa-fw fa-edit"></i></a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar la noticia?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                    <form action="{{ route('noticias.destroy',$noticia->id) }}" method="POST">
+                                                        @can('ver-noticia')
+                                                            <a class="btn btn-sm btn-primary " href="{{ route('noticias.show',$noticia->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                        @endcan 
+                                                        @can('editar-noticia')
+                                                            <a class="btn btn-sm btn-warning" href="{{ route('noticias.edit',$noticia->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                        @endcan 
+                                                        @can('borrar-noticia')
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar la noticia?')"><i class="fa fa-fw fa-trash"></i></button>
+                                                        @endcan                                                  
                                                     </form>
                                                 </td>
                                             </tr>                                          

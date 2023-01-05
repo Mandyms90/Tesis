@@ -18,11 +18,23 @@ class SeederTablaPermisos extends Seeder
     {
         //
         $permisos = [
+            // Administracion
+            'administrar',
+            //tabla usuarios 
+            'ver-usuario',
+            'crear-usuario',
+            'editar-usuario',
+            'borrar-usuario',            
             //tabla roles 
             'ver-rol',
             'crear-rol',
             'editar-rol',
             'borrar-rol',            
+            //tabla carrucel 
+            'ver-carrucel',
+            'crear-carrucel',
+            'editar-carrucel',
+            'borrar-carrucel',            
             //tabla informes
             'ver-informe',
             'crear-informe',

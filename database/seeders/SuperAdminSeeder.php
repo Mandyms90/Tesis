@@ -18,14 +18,14 @@ class SuperAdminSeeder extends Seeder
     {
         
         //
+        $usuario = Role::create(['name'=>'Administrador']);
+        $usuario->givePermissionTo(Permission::all());
         $usuario = User::create([
             'name' => 'SuperAdmin',
             'email' => 'amoreiras1990@yahoo.es',
             'password' => bcrypt('shiroums1990'),
-            // 'rol' => 'Administrador',
             'active' => true
         ]);
-        $usuario = Role::create(['name'=>'Administrador']);
         $usuario->givePermissionTo(Permission::all());
 
         // Estas lineas en caso de que no se haya creado el rol aun

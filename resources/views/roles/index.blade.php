@@ -12,7 +12,7 @@
                         <div class="card-body">
                             
                             @can('crear-rol')
-                            <a class="btn btn-success" href="{{ route('roles.create') }}" > Crear Rol </a>                                
+                                <a class="btn btn-success" href="{{ route('roles.create') }}" > Crear Rol </a>                                
                             @endcan
 
                             @if ($message = Session::get('success'))
@@ -46,7 +46,6 @@
                                                     <div class="d-inline p-1">
                                                         @can('borrar-rol')
                                                             <form action="{{ route('roles.destroy',$role->id) }}" method="POST">                                              
-                                                                
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quiere eliminar este rol?')"><i class="fa fa-fw fa-trash"></i></button>

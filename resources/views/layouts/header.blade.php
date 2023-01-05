@@ -10,26 +10,35 @@
         <li class="nav-item">
           <a class="nav-link" href="/contactos"><i class="fas fa-address-book fa-fw" ></i><span>Contactos</span></a>
         </li> 
-        
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-tools"></i> Administración </a>
-            <div class="dropdown-menu">
-            <a class="dropdown-item" href="/carrucels"><i class="fas fa-images fa-fw" ></i><span> Carrucel de Bienvenida </span> </a>
-            <a class="dropdown-item" href="/noticias"><i class="fas fa-newspaper fa-fw" ></i><span> Noticias </span></a>
-            <a class="dropdown-item" href="/informes"><i class="fas fa-pencil-alt fa-fw" ></i><span> Informes </span></a>
-            <a class="dropdown-item" href="/boletines"><i class="fas fa-book fa-fw" ></i><span> Boletines </span></a>
-            <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/usuarios">
-                    <i class=" fas fa-users"></i><span> Usuarios </span>
-                </a>
-                <a class="dropdown-item" href="/roles">
-                    <i class=" fas fa-user-lock"></i><span> Roles </span>
-                </a>
-                <a class="dropdown-item" href="/blogs">
-                    <i class=" fas fa-blog"></i><span> Blogs </span>
-            </a>
-            </div>
-          </li>         
+        @can('administrar')
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fas fa-tools"></i> Administración </a>
+                <div class="dropdown-menu">
+                    @can('ver-carrucel')
+                        <a class="dropdown-item" href="/carrucels"><i class="fas fa-images fa-fw" ></i><span> Carrucel de Bienvenida </span> </a>
+                    @endcan
+                    @can('ver-noticia')
+                        <a class="dropdown-item" href="/noticias"><i class="fas fa-newspaper fa-fw" ></i><span> Noticias </span></a>
+                    @endcan
+                    @can('ver-informe')
+                        <a class="dropdown-item" href="/informes"><i class="fas fa-pencil-alt fa-fw" ></i><span> Informes </span></a>
+                    @endcan
+                    @can('ver-boletin')
+                        <a class="dropdown-item" href="/boletines"><i class="fas fa-book fa-fw" ></i><span> Boletines </span></a>
+                    @endcan
+                    @can('ver-blog')
+                        <a class="dropdown-item" href="/blogs"><i class=" fas fa-blog fa-fw"></i><span> Blogs </span></a>                    
+                    @endcan
+                <div class="dropdown-divider"></div>
+                    @can('ver-usuario')
+                        <a class="dropdown-item" href="/usuarios"><i class=" fas fa-users fa-fw"></i><span> Usuarios </span></a>
+                    @endcan
+                    @can('ver-rol')
+                        <a class="dropdown-item" href="/roles"><i class=" fas fa-user-lock fa-fw"></i><span> Roles </span></a>
+                    @endcan
+                </div>
+            </li>         
+        @endcan
     </ul>
 </form>
 <ul class="navbar-nav navbar-right">
