@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Tesis'),
 
     /*
     |--------------------------------------------------------------------------
@@ -175,8 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Colletive
+        Collective\Html\HtmlServiceProvider::class,
         // Spatie;
         Spatie\Permission\PermissionServiceProvider::class,
+        // Intervention Image
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -231,7 +235,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        // Colletive Html
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        // intervention/image
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];
